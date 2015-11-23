@@ -1,0 +1,47 @@
+<html ng-app="tictactoe">
+	<head>
+		<link rel="stylesheet" href="assets/css/bootstrap.css">
+		<link rel="stylesheet" href="assets/css/materialadmin.css">
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/tictac.css">
+
+		<title>Tic Tac Toe Games</title>
+
+		<script type="text/javascript" src="assets/js/angular/angular.min.js"></script>
+		<script type="text/javascript" src="assets/js/tictactoe.js"></script>
+	</head>
+	<body ng-controller="tictactoeCtrl">
+		
+		<div class="tictac">
+			<div class="navigation">
+				<div ng-show="lose" class="alert alert-danger">YOU LOSE</div>
+				<div ng-show="win" class="alert alert-success">YOU WIN</div>
+				<div ng-show="draw" class="alert alert-success">DRAW</div>
+				<div class="score-board" ng-show="lose || win || draw">
+					<p class="text-center text-caption no-margin">Your Score:</p>
+					<h3 class="text-center text-xxl" style="margin-top:5px;">{{score}}</h3>
+				</div>
+				<div class="btn-group btn-block no-margin" data-toggle="buttons">
+					<label class="btn ink-reaction btn-success btn-player active" ng-click="changePlayer('circle')">
+						<input type="radio" name="options" id="option1"><i class="fa fa-circle-o fa-fw fa-2x"></i>
+					</label>
+					<label class="btn ink-reaction btn-success btn-player" ng-click="changePlayer('times')">
+						<input type="radio" name="options"  id="option3"><i class="fa fa-times fa-fw fa-2x"></i>
+					</label>
+				</div>
+				<button id="startBtn" class="btn btn-block btn-warning btn-start no-margin" ng-click="startGame()">{{btnStart}}</button>
+			</div>
+			<div class="tictac-board" style="display:none;">
+				<div ng-repeat="box in boxes">
+					<div ng-repeat="b in box" class="box" id="box{{b.x}}{{b.y}}" ng-click="fillBox(b)"></div>
+				</div>	
+			</div>
+			
+		</div>
+		<div class="copyright">
+			<p>Created By <a href="http://ihvanmp.com">Ihvan Mulya Pradana</a></i></p>
+		</div>
+		<script type="text/javascript" src="assets/js/jquery/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="assets/js/bootstrap/bootstrap.min.js"></script>
+	</body>
+</html>
